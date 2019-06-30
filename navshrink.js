@@ -1,3 +1,4 @@
+//personal website jquery
 $(window).scroll(function() {
 	// body...
 	if ($(document) .scrollTop() > 50) {
