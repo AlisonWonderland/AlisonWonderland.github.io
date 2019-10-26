@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>v2</title>
+</head>
+<body>
+  <div class="search-container">
+    <span id="sidebar-btn">
+        <a id="sidebar-toggle" href="#" onclick="openSideMenu()">&#9776;</a>
+    </span>
+    <!-- Hide logo in sidebar menu -->
+    <!-- <img id="logo" src="http://amillionthanks.org/img/amillionthanks_logo.png" alt="A million thanks logo"> -->
+    <form id="search-form">
+      <input class="" type="search" placeholder="Search city or state" aria-label="Search">
+      <button class="" type="submit">Search</button>
+    </form>
+  </div>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" onclick="closeSideMenu()" id="close-menu-icon">&times;</a>
+    <img id="logo" src="http://amillionthanks.org/img/amillionthanks_logo.png" alt="A million thanks logo">
+    <a href="#" class="side-nav-title"> Statistics Menu</a>
+    <a href="#" class="side-nav-subtitle">National stats dashboard</a>
+    <div class="dividing-line"></div>
+    <a href="#">Last Week</a>
+    <a href="#">Last Month</a>
+    <a href="#">Last Year</a>
+    <a href="#">Lifetime</a>
+    <a href="#">Custom Range</a>
+    <!-- <a href="#">--------------</a> -->
+    <div class="dividing-line"></div>
+    <a href="#" class="side-nav-subtitle">Visualizations</a>
+    <a href="#">National Heat Map</a>
+  </div>
+
+  <div class="stats-container">
+    <h1 id="location">City name, state</h1>
+
+    <div class="myChartDiv">
+      <canvas id="myChart" height="100"></canvas>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Mail id #</th>
+          <th>Address</th>
+          <th>Date sent</th>
+        </tr>
+    </thead>
+      <tbody>
+          <tr>
+            <td>1</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+            <td>5</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+            <td>7</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+            <td>9</td>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>10<tdr>
+            <td>123 Sesame Street</td>
+            <td>January 1, 2019</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>123 Sesame Street</td>
+            <td>January 2, 2019</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>123 Sesame Street</td>
+            <td>January 3, 2019</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- JS files needed -->
+  <!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="mdb.js"></script> -->
+  <script src="app.js"></script>
+  <script>
+    let ctx = document.getElementById("myChart").getContext("2d");
+    
+    let chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "line",
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [{
+                label: "Number of letters over the past year",
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
+                data: [0, 100, 184, 293, 400, 567, 630, 710, 885, 943, 1075, 1200]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+    // data = {
+    //   labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    //   datasets: [{
+    //     label: "Mail sent",
+    //     data: [20, 10, 30, 10, 20, 10, 50],
+    //     backgroundColor: [
+    //       "rgba(255, 99, 132, 0.5)",
+    //       "rgba(54, 162, 235, 0.5)",
+    //       "rgba(255, 206, 86, 0.5)",
+    //       "rgba(75, 192, 192, 0.5)",
+    //       "rgba(153, 102, 255, 0.5)",
+    //       "rgba(255, 159, 64, 0.5)",
+    //       "rgba(105, 205, 0, 0.5)"
+
+    //     ],
+    //     borderColor: [
+    //       "rgba(255,99,132,1)",
+    //       "rgba(54, 162, 235, 1)",
+    //       "rgba(255, 206, 86, 1)",
+    //       "rgba(75, 192, 192, 1)",
+    //       "rgba(153, 102, 255, 1)",
+    //       "rgba(255, 159, 64, 1)",
+    //       "rgba(105, 205, 0, 1)"
+    //     ],
+    //     borderWidth: 1
+    //   }]
+    // }
+    // let myBarChart = new Chart(ctx, {
+    //   type: "bar",
+    //   data: data,
+    //   options: {
+    //     responsive: true, // Instruct chart js to respond nicely.
+    //     maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
+    //     legend: {
+    //       display: false
+    //     },
+    //     title: {
+    //     display: true,
+    //       text: "Total mail sent this week for City, State"
+    //     },
+    //     scales: {
+    //       xAxes: [{
+    //         gridLines: {
+    //           display:false
+    //         }
+    //       }],
+    //       yAxes: [{
+    //         gridLines: {
+    //           display:false
+    //         },
+    //         ticks: {
+    //         beginAtZero: true,
+    //         steps: 5,
+    //         stepSize: 10,
+    //         max: 50
+    //       }   
+    //       }]
+    //     }
+    //   }
+    // });
+  </script>
+  <!-- <script src="barchart.js"></script> -->
+</body>
+</html>
