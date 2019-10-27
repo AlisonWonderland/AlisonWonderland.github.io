@@ -2,6 +2,9 @@ html, body {
     margin: 0;
     height: 100%;
     width: 100%;
+    -moz-transform: scale(1, 1); /* Moz-browsers */
+    zoom: 1;
+    zoom: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -9,29 +12,6 @@ body {
     background-color: #eee;
     font-size: 16px;
     line-height: 1.4;
-}
-
-button[type=submit] {
-    height: 40px;
-    width: 200px;
-    text-align: center;
-    border-radius: 10px;
-    background: #fff;
-    border: 0px solid black;
-    color: black;
-    letter-spacing:1px;
-    font-size: 20px;
-    transition: all 0.25s ease;
-}
-
-button[type=submit]:hover {
-    cursor: pointer;
-    color:white;
-    background: #9acdff;
-}
-
-th {
-    text-align: left;
 }
 
 #sidebar-toggle {
@@ -70,6 +50,7 @@ th {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
@@ -111,7 +92,6 @@ th {
 }
 
 .side-nav a:hover {
-    /* color: #fff; */
     text-decoration: underline;
 }
 
@@ -129,7 +109,6 @@ th {
 
 .side-nav .side-nav-subtitle:hover,
 .side-nav .side-nav-title:hover {
-    /* color: #ccc; */
     text-decoration: none;
     cursor: default;
 }
@@ -137,10 +116,6 @@ th {
 .side-nav .external-link:hover {
     text-decoration: underline;
     cursor: pointer;
-}
-
-.options {
-    padding-top: 0px;
 }
 
 .dividing-line {
@@ -155,37 +130,6 @@ th {
     width: 18px;
     height: 18px;
 }
-
-.myChartDiv {
-    min-height: 500px;
-}
-
-.table {
-    display: table;
-    border-collapse: collapse;
-    border: 2px solid grey;
-    width: 100%;
-    line-height: 1.5rem;
-    background-color: #343a40;
-    font-size: 1rem;
-    font-weight: 300;
-    color: #fff;
-}
-
-.table thead th,
-.table th {
-    border-bottom: 2px solid #454d55;
-}
-
-.table thead th,
-.table td {
-    padding: .75rem;
-}
-
-.table tr{
-    border-bottom: 1px solid #454d55;
-}
-
 
 /* To remove x that appears on the right side in search form */
 input[type="search"]::-webkit-search-decoration,

@@ -4,12 +4,13 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="shortcut icon" href="favicon.ico">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <title>v2</title>
+  <title>Location Stats</title>
 </head>
+
 <body>
   <div class="search-container">
     <span id="sidebar-btn">
@@ -33,11 +34,11 @@
       <a href="#">Custom Range</a>
     </div>
     <div class="dividing-line"></div>
-    <a href="#" class="side-nav-subtitle external-link">National stats dashboard <img src="https://img.icons8.com/metro/26/000000/external-link.png" class="external-link-icon"></a>
+    <a href="dashboard/index.html" class="side-nav-subtitle external-link">National stats dashboard <img src="https://img.icons8.com/metro/26/000000/external-link.png" class="external-link-icon"></a>
     <div class="dividing-line"></div>
     <a href="#" class="side-nav-subtitle">Visualizations</a>
     <div class="options">
-      <a href="#">National Heat Map <img src="https://img.icons8.com/metro/26/000000/external-link.png" class="external-link-icon"></a>
+      <a href="heatmap/index.html">National Heat Map <img src="https://img.icons8.com/metro/26/000000/external-link.png" class="external-link-icon"></a>
     </div>
     <div class="dividing-line"></div>
   </div>
@@ -122,15 +123,5 @@
   <!-- JS files needed -->
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.6"></script>
   <script src="app.js"></script>
-  <script>
-    (function() {
-      var placesAutocomplete = places({
-        appId: 'plYR0C6D25C3',
-        apiKey: 'cb7d79d87daed4f68068500409865fa1',
-        container: document.querySelector('#address')
-      });
-    })();
-  </script>
-  <!-- <script src="barchart.js"></script> -->
 </body>
 </html>

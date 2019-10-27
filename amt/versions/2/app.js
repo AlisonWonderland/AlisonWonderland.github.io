@@ -1,7 +1,10 @@
 const statsContainer = document.querySelector(".stats-container");
 const searchContainter = document.querySelector(".search-container");
+
 // Adding margin top because the search bar is fixed and the location name would go under it.
 statsContainer.style.marginTop = searchContainter.offsetHeight + "px";
+
+// onclick/Event functions
 function openSideMenu() {
     document.getElementById("side-menu").style.left = "0px";
 }
@@ -9,6 +12,15 @@ function openSideMenu() {
 function closeSideMenu() {
     document.getElementById("side-menu").style.left= "-500px";
 }
+
+// Algolia search bar init function
+(function() {
+    let placesAutocomplete = places({
+      appId: 'plYR0C6D25C3',
+      apiKey: 'cb7d79d87daed4f68068500409865fa1',
+      container: document.querySelector('#address')
+    });
+})();
 
 // My chart.js code
 const ctx = document.getElementById("myChart").getContext("2d");
