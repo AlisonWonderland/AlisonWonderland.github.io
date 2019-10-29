@@ -2,7 +2,7 @@ const body = document.querySelector("body");
 const searchContainter = document.querySelector(".search-container");
 const mapDiv = document.querySelector("#map");
 
-let prevWindowHeight = window.innerHeight;W
+let prevWindowHeight = window.innerHeight;
 setMapHeight();
 initHeatMap();
 
