@@ -1,0 +1,1 @@
+# AMT Picture Drag and drop/picture upload
