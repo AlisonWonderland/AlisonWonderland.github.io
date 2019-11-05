@@ -56,7 +56,6 @@ timeframeOptions[4].addEventListener("click", function() {
       container: document.querySelector('#address')
     });
 
-    // let $address = document.querySelector('#address-form')
     placesAutocomplete.on('change', function(e) {
         if(e.suggestion.type === "city") {
             fetchCityData(e.suggestion);
